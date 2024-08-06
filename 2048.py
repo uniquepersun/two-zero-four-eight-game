@@ -59,3 +59,56 @@ class Game2048:
                 index += 1
         return new_row
 
+    def merge(self, row):
+        for i in range(3):
+            if row[i] == row[i + 1] and row[i] != 0:
+                row[i] *= 2
+                self.score += row[i]
+                row[i + 1] = 0
+        return row
+
+    def reverse_rows(self, board):
+        return [row[::-1] for row in board]
+
+    def transpose(self, board):
+        return [list(row) for row in zip(*board)]
+
+    def print_board(self):
+        print("Score: {}".format(self.score))
+        for row in self.board:
+            print("|", end="")
+            for tile in row:
+                if tile == 0:
+                    print("{:4}".format("."), end="")
+                else:
+                    print("{:4}".format(tile), end="")
+            print("|")
+        print()
+
+    def check_game_over(self):
+        game_over = True
+        for i in range(4):
+            for j in range(4):
+                if self.board[i][j] == 0:
+                    game_over = False
+                    break
+                if j < 3 and self.board[i][j] == self.board[i][j + 1]:
+                    game_over = False
+                    break
+                if i < 3 and self.board[i][j] == self.board[i + 1][j]:
+                    game_over = False
+                    break
+        if game_over:
+            print("Game Overrr! your score is: {}".format(self.score))
+
+if __name__ == "__main__":
+    game = Game2048()
+    directions = {"w": "up", "s": "down", "a": "left", "d": "right"}
+    while True:
+        move = input("Enter move (w/s/a/d) or 'q' to quit: ").lower()
+        if move == "q":
+            break
+        if move in directions:
+            game.move(directions[move])
+        else:
+            print("Invalid input. Please enter w, s, a, or d.")
