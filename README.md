@@ -14,8 +14,8 @@ When two tiles with the same number touch, they merge into one and add up! :spar
 - Tracks your current score and best high score! :trophy:
 
 ## Screenshots
-[here](https://github.com/user-attachments/assets/88b85807-307f-4588-abce-d2aedb0c255c)
-[another](https://github.com/user-attachments/assets/63b374d4-a89d-4a7e-8b6f-86d69daeae26)
+- [here](https://github.com/user-attachments/assets/88b85807-307f-4588-abce-d2aedb0c255c)
+- [another](https://github.com/user-attachments/assets/63b374d4-a89d-4a7e-8b6f-86d69daeae26)
 
 
 
